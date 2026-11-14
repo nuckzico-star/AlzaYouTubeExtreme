@@ -38,8 +38,10 @@ public interface MainActivityPrefs
 	int CLOCK_POS_CENTER = 3;
 
 	Pref<IntSupplier> THEME_MAIN = Pref.i("THEME_MAIN", THEME_DARK);
-	/** Custom theme shell/window background image URI (paid builds). Empty = theme default. */
-	Pref<BooleanSupplier> HIDE_BARS = Pref.b("HIDE_BARS", false);
+    Pref<Supplier<String>> THEME_BACKGROUND_URI =
+    Pref.s("THEME_BACKGROUND_URI", "");
+    /** Custom theme shell/window background image URI (paid builds). Empty = theme default. */
+    Pref<BooleanSupplier> HIDE_BARS = Pref.b("HIDE_BARS", false);
 	Pref<BooleanSupplier> FULLSCREEN = Pref.b("FULLSCREEN", false);
 	Pref<BooleanSupplier> SHOW_PG_UP_DOWN = Pref.b("SHOW_PG_UP_DOWN", true);
 	Pref<BooleanSupplier> USE_DPAD_CURSOR = AUTO ? Pref.b("USE_DPAD_CURSOR", true) : null;
