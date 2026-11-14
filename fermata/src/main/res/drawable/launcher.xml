@@ -1,4 +1,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/fermata_bg" />
-    <item android:drawable="@drawable/fermata_l" />
+    <item>
+        <bitmap
+            android:src="@drawable/alzayoutube_extreme"
+            android:gravity="fill" />
+    </item>
 </layer-list>
