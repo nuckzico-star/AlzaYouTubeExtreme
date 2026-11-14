@@ -1458,7 +1458,6 @@ public class MainActivityDelegate extends ActivityDelegate
 			});
 		} else if (prefs.contains(VOICE_CONTROL_SUBST)) {
 			if (voiceCommandHandler != null) voiceCommandHandler.updateWordSubst();
-		} else if (prefs.contains(MainActivityPrefs.PASSENGER_REMOTE_ENABLED)) {
 		} else if (prefs.contains(CLOCK_POS)) {
 			getBody().getVideoView().setClockPos(getPrefs().getClockPosPref());
 		} else if (prefs.contains(LOCALE)) {
