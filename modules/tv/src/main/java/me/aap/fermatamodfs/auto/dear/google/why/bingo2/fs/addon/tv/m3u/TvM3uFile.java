@@ -252,8 +252,6 @@ public class TvM3uFile extends M3uFile {
 		getPrefs().applyBooleanPref(XSTREAM_ALL_AT_ONCE, allAtOnce);
 	}
 
-	}
-
 	public long getEpgTimeStamp() {
 		return getPrefs().getLongPref(EpgPrefs.EPG_TIMESTAMP);
 	}
