@@ -9,10 +9,10 @@
     <string name="gallery_no_folders">No media folders found.</string>
     <string name="gallery_empty">No photos or videos found on this device.</string>
     <string name="video_player">Video Player</string>
-    <string name="app_name_mobile_release" translatable="false">Fermata Xtream</string>
-    <string name="app_name_auto_release" translatable="false">Fermata Xtream</string>
-    <string name="app_name_mobile_debug" translatable="false">Debug Fermata Xtream</string>
-    <string name="app_name_auto_debug" translatable="false">Debug Fermata Xtream</string>
+    <string name="app_name_mobile_release" translatable="false">AlzaYouTubeExtreme</string>
+    <string name="app_name_auto_release" translatable="false">AlzaYouTube Extreme</string>
+    <string name="app_name_mobile_debug" translatable="false">Debug AlzaYouTube Extreme</string>
+    <string name="app_name_auto_debug" translatable="false">Debug AlzaYoutube Extreme</string>
     <string name="mirror_service_name_release" translatable="false">Fermata Mirror</string>
     <string name="mirror_service_name_debug" translatable="false">Debug Fermata Mirror</string>
     <string name="mirror_fs_service_name_release" translatable="false">FS Fermata Mirror</string>
