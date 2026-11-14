@@ -856,9 +856,9 @@ public class MainActivityDelegate extends ActivityDelegate
 		BodyLayout b = getBody();
 		if (b != null) {
 			if (b.isVideoMode()) {
-				// Browse-first modules and downloaded Nuvio videos return without split + slider.
-				b.setMode(BodyLayout.Mode.BOTH);
-				return true;
+    b.setMode(BodyLayout.Mode.BOTH);
+    return true;
+			}
 			}
 			if (b.isRadioMode()) {
 				b.setMode(BodyLayout.Mode.FRAME);
