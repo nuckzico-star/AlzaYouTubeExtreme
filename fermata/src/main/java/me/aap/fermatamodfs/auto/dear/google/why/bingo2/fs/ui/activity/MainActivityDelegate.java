@@ -851,20 +851,39 @@ public class MainActivityDelegate extends ActivityDelegate
 	 * Back outside fragment-local history: leave video/radio, leave modules for the main menu.
 	 * Exit (double-back) only happens from {@link #isHomeFragmentActive() home}.
 	 */
-	@Override
-	protected boolean handleBackFallthrough(@Nullable ActivityFragment f) {
-		BodyLayout b = getBody();
-		if (b != null) {
-			if (b.isVideoMode()) {
-    b.setMode(BodyLayout.Mode.BOTH);
+	
+@Override
+protected boolean handleBackFallthrough(@Nullable ActivityFragment f) {
+    BodyLayout b = getBody();
+    if (b != null) {
+        if (b.isVideoMode()) {
+            b.setMode(BodyLayout.Mode.BOTH);
+            return true;
+        }
+        if (b.isRadioMode()) {
+            b.setMode(BodyLayout.Mode.FRAME);
+            return true;
+        }
+    }
+
+    // Already on main menu — let ActivityDelegate do double-back-to-exit.
+    if (isHomeFragmentActive()) return false;
+
+    // Secondary screen (e.g. settings) opened from a module — return to that module.
+    if (f != null) {
+        int navId = getActiveNavItemId();
+        if ((navId != ID_NULL) && (navId != R.id.home_fragment)
+                && (f.getFragmentId() != navId)) {
+            showFragment(navId);
+            return true;
+        }
+    }
+
+    // Module root / any non-home screen → main menu (never exit from here).
+    showMainMenu();
     return true;
-			}
-			}
-			if (b.isRadioMode()) {
-				b.setMode(BodyLayout.Mode.FRAME);
-				return true;
-			}
-		}
+}
+
 
 		// Already on main menu — let ActivityDelegate do double-back-to-exit.
 		if (isHomeFragmentActive()) return false;
