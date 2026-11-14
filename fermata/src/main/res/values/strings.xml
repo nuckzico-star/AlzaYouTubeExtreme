@@ -17,6 +17,8 @@
     <string name="mirror_service_name_debug" translatable="false">Debug Fermata Mirror</string>
     <string name="mirror_fs_service_name_release" translatable="false">FS Fermata Mirror</string>
     <string name="mirror_fs_service_name_debug" translatable="false">Debug FS Fermata Mirror</string>
+    <string name="play_fs_service_name_release" translatable="false">AlzaYouTubeExtreme</string>
+    <string name="play_fs_service_name_debug" translatable="false">Debug AlzaYouTubeExtreme</string>
     <string name="media_service_name_mobile_release" translatable="false">@string/app_name_mobile_release</string>
     <string name="media_service_name_auto_release" translatable="false">Fermata Media Service</string>
     <string name="media_service_name_mobile_debug" translatable="false">@string/app_name_mobile_debug</string>
