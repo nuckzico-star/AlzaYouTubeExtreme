@@ -25,7 +25,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
-      - name: Accept Android SDK licenses
+         with:
+          accept-android-sdk-licenses: false
         run: |
           yes | sdkmanager --licenses
 
