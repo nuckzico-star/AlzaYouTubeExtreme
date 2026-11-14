@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'org.bouncycastle:bcpkix-jdk18on:1.81'
+        classpath 'org.bouncycastle:bcpkix-jdk18on:1.81.1'
     }
 }
 
