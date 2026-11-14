@@ -112,9 +112,6 @@ public class FermataWebView extends WebView
 		if (!BuildConfig.AUTO) super.onWindowVisibilityChanged(visibility);
 		else if (visibility != View.GONE) super.onWindowVisibilityChanged(View.VISIBLE);
 	}
-
-	@Override
-	public void onPreferenceChanged(PreferenceStore store, List<PreferenceStore.Pref<?>> prefs) {
 		WebBrowserAddon a = getAddon();
 		if (a == null) return;
 
