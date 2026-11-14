@@ -865,26 +865,6 @@ protected boolean handleBackFallthrough(@Nullable ActivityFragment f) {
             return true;
         }
     }
-
-    // Already on main menu — let ActivityDelegate do double-back-to-exit.
-    if (isHomeFragmentActive()) return false;
-
-    // Secondary screen (e.g. settings) opened from a module — return to that module.
-    if (f != null) {
-        int navId = getActiveNavItemId();
-        if ((navId != ID_NULL) && (navId != R.id.home_fragment)
-                && (f.getFragmentId() != navId)) {
-            showFragment(navId);
-            return true;
-        }
-    }
-
-    // Module root / any non-home screen → main menu (never exit from here).
-    showMainMenu();
-    return true;
-}
-
-
 		// Already on main menu — let ActivityDelegate do double-back-to-exit.
 		if (isHomeFragmentActive()) return false;
 
