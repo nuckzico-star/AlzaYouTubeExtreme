@@ -857,11 +857,7 @@ public class MainActivityDelegate extends ActivityDelegate
 		if (b != null) {
 			if (b.isVideoMode()) {
 				// Browse-first modules and downloaded Nuvio videos return without split + slider.
-				if (isBrowseFirstVideoUiActive(f)) {
-					b.setMode(BodyLayout.Mode.FRAME);
-				} else {
-					b.setMode(BodyLayout.Mode.BOTH);
-				}
+				b.setMode(BodyLayout.Mode.BOTH);
 				return true;
 			}
 			if (b.isRadioMode()) {
