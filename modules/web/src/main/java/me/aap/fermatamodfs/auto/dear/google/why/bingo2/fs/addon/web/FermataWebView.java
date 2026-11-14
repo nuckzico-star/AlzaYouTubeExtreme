@@ -128,8 +128,10 @@ public class FermataWebView extends WebView
 			setDesktopMode(a, true);
 		} else if (prefs.contains(a.getForceDarkPref())) {
 			setForceDark(addon, true);
-		} else if (prefs.contains(a.getPopupBlockerPref())) {
-			setPopupBlocking(a);
+	    } else if (prefs.contains(a.getForceDarkPref())) {
+            setForceDark(addon, true);
+        }
+    }
 		}
 	}
 
