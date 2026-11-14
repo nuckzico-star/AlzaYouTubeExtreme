@@ -597,11 +597,6 @@ public class MainActivityDelegate extends ActivityDelegate
 		}
 	}
 
-		} catch (Throwable t) {
-			Log.w("Failed to apply custom theme background", t);
-		}
-	}
-
 	@Override
 	public boolean interceptTouchEvent(MotionEvent e, Function<MotionEvent, Boolean> view) {
 		if (AUTO && (e.getAction() == MotionEvent.ACTION_DOWN)) {
