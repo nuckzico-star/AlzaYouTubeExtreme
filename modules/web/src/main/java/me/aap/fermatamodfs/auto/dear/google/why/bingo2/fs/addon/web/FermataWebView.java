@@ -108,36 +108,35 @@ public class FermataWebView extends WebView
 	}
 
 	@Override
-	protected void onWindowVisibilityChanged(int visibility) {
-		if (!BuildConfig.AUTO) super.onWindowVisibilityChanged(visibility);
-		else if (visibility != View.GONE) super.onWindowVisibilityChanged(View.VISIBLE);
-	}
-		WebBrowserAddon a = getAddon();
-		if (a == null) return;
-
-		if (prefs.contains(a.getDesktopVersionPref())) {
-			setDesktopMode(a, true);
-		} else if (prefs.contains(a.getUserAgentPref())) {
-			UserAgent.ua = null;
-			setDesktopMode(a, true);
-		} else if (prefs.contains(a.getUserAgentDesktopPref())) {
-			UserAgent.uaDesktop = null;
-			setDesktopMode(a, true);
-		} else if (prefs.contains(a.getForceDarkPref())) {
-			setForceDark(addon, true);
-	    } else if (prefs.contains(a.getForceDarkPref())) {
-            setForceDark(addon, true);
-        }
+    protected void onWindowVisibilityChanged(int visibility) {
+    if (!BuildConfig.AUTO) super.onWindowVisibilityChanged(visibility);
+    else if (visibility != View.GONE) super.onWindowVisibilityChanged(View.VISIBLE);
     }
-		}
-	}
 
-	@Override
-	public void onActivityEvent(MainActivityDelegate a, long e) {
-		if (handleActivityDestroyEvent(a, e)) {
-			getAddon().getPreferenceStore().removeBroadcastListener(this);
-		}
-	}
+   @Override
+   public void onPreferenceChanged(PreferenceStore store, List<PreferenceStore.Pref<?>> prefs) {
+    WebBrowserAddon a = getAddon();
+    if (a == null) return;
+
+    if (prefs.contains(a.getDesktopVersionPref())) {
+        setDesktopMode(a, true);
+    } else if (prefs.contains(a.getUserAgentPref())) {
+        UserAgent.ua = null;
+        setDesktopMode(a, true);
+    } else if (prefs.contains(a.getUserAgentDesktopPref())) {
+        UserAgent.uaDesktop = null;
+        setDesktopMode(a, true);
+    } else if (prefs.contains(a.getForceDarkPref())) {
+        setForceDark(addon, true);
+    }
+    }
+
+    @Override
+    public void onActivityEvent(MainActivityDelegate a, long e) {
+    if (handleActivityDestroyEvent(a, e)) {
+        getAddon().getPreferenceStore().removeBroadcastListener(this);
+    }
+    }
 
 	@Override
 	protected void onConfigurationChanged(Configuration newConfig) {
