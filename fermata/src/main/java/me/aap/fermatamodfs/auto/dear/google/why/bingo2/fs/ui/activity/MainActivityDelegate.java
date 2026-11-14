@@ -893,7 +893,6 @@ public class MainActivityDelegate extends ActivityDelegate
 		String addonClass = findAddonClassName(id);
 		if (addonClass != null && !AddonManager.get().hasAddon(id)) {
 			AddonManager.get().getOrInstallAddon(addonClass).onSuccess(addon -> {
-				if (launchDashcamOnPhone(id)) return;
 				setActiveNavItemId(id);
 				showFragmentLoaded(id, launchInput);
 			}).onFailure(err -> {
@@ -904,7 +903,6 @@ public class MainActivityDelegate extends ActivityDelegate
 			});
 			return;
 		}
-		if (launchDashcamOnPhone(id)) return;
 		setActiveNavItemId(id);
 		showFragmentLoaded(id, launchInput);
 	}
