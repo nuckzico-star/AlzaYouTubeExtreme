@@ -2,6 +2,8 @@ package me.aap.fermatamodfs.auto.dear.google.why.bingo2.fs.auto;
 
 import android.content.Context;
 import android.os.SystemClock;
+import android.os.LocaleList;
+import java.util.Locale;
 import android.support.car.input.CarRestrictedEditText;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
