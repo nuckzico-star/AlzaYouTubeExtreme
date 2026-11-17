@@ -25,8 +25,13 @@ public class CarEditText extends CarRestrictedEditText implements CarEditable {
 	public CarEditText(Context context) {
     super(context, null);
     setImeHintLocales(new LocaleList(new Locale("th", "TH")));
-   }
-
+  }
+    @Override
+    public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
+    InputConnection connection = super.onCreateInputConnection(outAttrs);
+    outAttrs.hintLocales = LocaleList.forLanguageTags("th-TH");
+    return connection;
+}
 	@Override
 	public void setCarEditableListener(final CarEditableListener listener) {
 		super.setCarEditableListener(listener::onUpdateSelection);
