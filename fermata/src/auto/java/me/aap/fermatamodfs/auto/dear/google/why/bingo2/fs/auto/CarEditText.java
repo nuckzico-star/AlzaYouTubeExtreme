@@ -8,6 +8,7 @@ import android.support.car.input.CarRestrictedEditText;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputConnection;
 
 import com.google.android.gms.car.input.CarEditable;
 import com.google.android.gms.car.input.CarEditableListener;
