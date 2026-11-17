@@ -20,8 +20,9 @@ public class CarEditText extends CarRestrictedEditText implements CarEditable {
 	private OnKeyListener keyListener;
 
 	public CarEditText(Context context) {
-		super(context, null);
-	}
+    super(context, null);
+    setImeHintLocales(new LocaleList(new Locale("th", "TH")));
+   }
 
 	@Override
 	public void setCarEditableListener(final CarEditableListener listener) {
