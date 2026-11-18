@@ -1589,17 +1589,18 @@ protected boolean handleBackFallthrough(@Nullable ActivityFragment f) {
         this.promise = promise;
         this.textInput = textInput;
         this.showUi = showUi;
+android.widget.Toast.makeText(getContext(),
+        SpeechRecognizer.isOnDeviceRecognitionAvailable(getContext())
+                ? "On-device recognizer AVAILABLE"
+                : "On-device recognizer NOT AVAILABLE",
+        android.widget.Toast.LENGTH_LONG).show();
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S
-            && SpeechRecognizer.isOnDeviceRecognitionAvailable(getContext())) {
-        recognizer = SpeechRecognizer.createOnDeviceSpeechRecognizer(getContext());
-  } else {
-        recognizer = SpeechRecognizer.createSpeechRecognizer(getContext());
-   }
-
-    recognizer.setRecognitionListener(this);
-    text = new MaterialTextView(getContext());
-    }
+if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S
+        && SpeechRecognizer.isOnDeviceRecognitionAvailable(getContext())) {
+    recognizer = SpeechRecognizer.createOnDeviceSpeechRecognizer(getContext());
+} else {
+    recognizer = SpeechRecognizer.createSpeechRecognizer(getContext());
+}
 
     void start(Intent i) {
     if (isMediaPlayingForVoiceControl()) {
