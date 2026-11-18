@@ -1586,39 +1586,31 @@ protected boolean handleBackFallthrough(@Nullable ActivityFragment f) {
 		private PlaybackStateCompat playbackState;
 
 		private SpeechListener(Promise<List<String>> promise, boolean textInput, boolean showUi) {
-			this.promise = promise;
-			this.textInput = textInput;
-			this.showUi = showUi;
-			recognizer = SpeechRecognizer.createSpeechRecognizer(getContext());
-			recognizer.setRecognitionListener(this);
-			text = new MaterialTextView(getContext());
-		}
+        this.promise = promise;
+        this.textInput = textInput;
+        this.showUi = showUi;
 
-		void start(Intent i) {
-			if (isMediaPlayingForVoiceControl()) {
-				playbackState = null;
-				promise.cancel();
-				return;
-			} else {
-				playbackState = null;
-			}
-			recognizer.startListening(i);
-		}
-			recognizer.setRecognitionListener(this);
-			text = new MaterialTextView(getContext());
-		}
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S
+            && SpeechRecognizer.isOnDeviceRecognitionAvailable(getContext())) {
+        recognizer = SpeechRecognizer.createOnDeviceSpeechRecognizer(getContext());
+  } else {
+        recognizer = SpeechRecognizer.createSpeechRecognizer(getContext());
+   }
 
-		void start(Intent i) {
-			if (isMediaPlayingForVoiceControl()) {
-				playbackState = null;
-				promise.cancel();
-				return;
-			} else {
-				playbackState = null;
-			}
-			recognizer.startListening(i);
-		}
+    recognizer.setRecognitionListener(this);
+    text = new MaterialTextView(getContext());
+    }
 
+    void start(Intent i) {
+    if (isMediaPlayingForVoiceControl()) {
+        playbackState = null;
+        promise.cancel();
+        return;
+    } else {
+        playbackState = null;
+    }
+    recognizer.startListening(i);
+    }
 		void destroy() {
 			MediaSessionCallback cb = getMediaSessionCallback();
 			PlaybackStateCompat state = cb.getPlaybackState();
