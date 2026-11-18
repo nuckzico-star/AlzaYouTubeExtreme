@@ -1118,6 +1118,9 @@ protected boolean handleBackFallthrough(@Nullable ActivityFragment f) {
 			if (speechListener != null) speechListener.destroy();
 			Promise<List<String>> p = new Promise<>();
 			String lang = (locale == null) ? getPrefs().getVoiceControlLang(this) : locale;
+			android.widget.Toast.makeText(this,
+        "Language variable: " + lang,
+        android.widget.Toast.LENGTH_LONG).show();
 			Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 			i.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
 			i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, lang);
