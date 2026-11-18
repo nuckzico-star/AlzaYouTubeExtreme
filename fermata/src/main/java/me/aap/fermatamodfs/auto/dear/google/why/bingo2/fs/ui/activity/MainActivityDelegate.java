@@ -1601,7 +1601,7 @@ if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S
 } else {
     recognizer = SpeechRecognizer.createSpeechRecognizer(getContext());
 }
-
+}
     void start(Intent i) {
     if (isMediaPlayingForVoiceControl()) {
         playbackState = null;
