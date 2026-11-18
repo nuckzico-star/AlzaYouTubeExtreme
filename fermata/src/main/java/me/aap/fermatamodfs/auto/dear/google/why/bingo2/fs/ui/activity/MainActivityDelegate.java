@@ -1614,6 +1614,9 @@ text = new MaterialTextView(getContext());
     } else {
         playbackState = null;
     }
+	android.widget.Toast.makeText(getContext(),
+        "Requested language: " + i.getStringExtra(RecognizerIntent.EXTRA_LANGUAGE),
+        android.widget.Toast.LENGTH_LONG).show();	
     recognizer.startListening(i);
     }
 		void destroy() {
