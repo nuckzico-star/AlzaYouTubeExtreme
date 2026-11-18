@@ -30,7 +30,10 @@ public class CarEditText extends CarRestrictedEditText implements CarEditable {
     public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
     InputConnection connection = super.onCreateInputConnection(outAttrs);
     outAttrs.hintLocales = LocaleList.forLanguageTags("th-TH");
-    return connection;
+		android.widget.Toast.makeText(getContext(),
+        "Keyboard locale: " + outAttrs.hintLocales.toLanguageTags(),
+        android.widget.Toast.LENGTH_LONG).show();
+		return connection;
 }
 	@Override
 	public void setCarEditableListener(final CarEditableListener listener) {
