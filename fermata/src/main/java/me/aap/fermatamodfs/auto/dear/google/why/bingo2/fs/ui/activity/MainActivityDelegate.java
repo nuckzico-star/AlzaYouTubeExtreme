@@ -1601,6 +1601,8 @@ if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S
 } else {
     recognizer = SpeechRecognizer.createSpeechRecognizer(getContext());
 }
+	recognizer.setRecognitionListener(this);
+text = new MaterialTextView(getContext());
 }
     void start(Intent i) {
     if (isMediaPlayingForVoiceControl()) {
