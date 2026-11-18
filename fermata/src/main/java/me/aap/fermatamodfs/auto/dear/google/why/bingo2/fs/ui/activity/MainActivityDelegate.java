@@ -1119,6 +1119,7 @@ protected boolean handleBackFallthrough(@Nullable ActivityFragment f) {
 			Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 			i.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
 			i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, lang);
+			i.putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, true);
 			i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
 			speechListener = new SpeechListener(p, textInput, showUi);
 			speechListener.start(i);
