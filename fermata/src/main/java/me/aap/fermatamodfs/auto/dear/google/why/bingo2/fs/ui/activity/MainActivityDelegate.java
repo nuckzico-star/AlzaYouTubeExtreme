@@ -1589,10 +1589,6 @@ protected boolean handleBackFallthrough(@Nullable ActivityFragment f) {
 			this.promise = promise;
 			this.textInput = textInput;
 			this.showUi = showUi;
-			private SpeechListener(Promise<List<String>> promise, boolean textInput, boolean showUi) {
-			this.promise = promise;
-			this.textInput = textInput;
-			this.showUi = showUi;
 			recognizer = SpeechRecognizer.createSpeechRecognizer(getContext());
 			recognizer.setRecognitionListener(this);
 			text = new MaterialTextView(getContext());
