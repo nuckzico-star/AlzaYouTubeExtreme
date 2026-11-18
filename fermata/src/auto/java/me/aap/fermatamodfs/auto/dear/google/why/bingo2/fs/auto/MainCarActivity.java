@@ -361,7 +361,7 @@ public class MainCarActivity extends CarActivity implements FermataActivity {
 		textWatcher = w;
 		getActivityDelegate().onSuccess(a -> {
 			if (a.getPrefs().getVoiceControlEnabledPref()) {
-				a.startSpeechRecognizer(null, true).onCompletion((q, err) -> {
+				a.startSpeechRecognizer("th-TH", true).onCompletion((q, err) -> {
 					stopInput();
 					if (err instanceof OperationCanceledException) {
 						textWatcher = w;
